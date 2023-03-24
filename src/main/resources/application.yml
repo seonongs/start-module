@@ -1,4 +1,14 @@
 spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://112.217.238.122:5432/test
+    username: postgres
+    password: postgres
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
@@ -8,3 +18,12 @@ spring:
   devtools:
     livereload:
       enabled: true
+
+logging:
+  level:
+    root: info
+
+mybatis:
+  mapper-locations: mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
