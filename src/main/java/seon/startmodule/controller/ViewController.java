@@ -6,8 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import seon.startmodule.config.AdminAuthorize;
-import seon.startmodule.config.UserAuthorize;
+import seon.startmodule.config.role.AdminAuthorize;
+import seon.startmodule.config.role.AllAuthorize;
+import seon.startmodule.config.role.UserAuthorize;
 
 @Controller
 @RequestMapping("/view")
@@ -28,7 +29,7 @@ public class ViewController {
 
         model.addAttribute("loginId", user.getUsername());
         model.addAttribute("loginRoles", user.getAuthorities());
-        return "auth/main";
+        return "auth/dashboard";
     }
 
     @GetMapping("/setting/admin")
@@ -41,5 +42,11 @@ public class ViewController {
     @UserAuthorize
     public String userSettingPage() {
         return "auth/user";
+    }
+
+    @GetMapping("/setting/everybody")
+    @AllAuthorize
+    public String everybodySettingPage() {
+        return "auth/everybody";
     }
 }

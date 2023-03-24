@@ -26,7 +26,6 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
                         .requestMatchers("/status", "/images/**", "/view/join", "/auth/join").permitAll()
-//                        .requestMatchers("/**").hasAnyRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login

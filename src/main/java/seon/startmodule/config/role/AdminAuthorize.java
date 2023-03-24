@@ -1,4 +1,4 @@
-package seon.startmodule.config;
+package seon.startmodule.config.role;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 
@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 
 @Target({ ElementType.METHOD, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-@PreAuthorize("hasAnyRole('USER')")
-public @interface UserAuthorize {
+@PreAuthorize("hasAnyRole('ADMIN')")
+public @interface AdminAuthorize {
 }
