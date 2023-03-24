@@ -1,6 +1,7 @@
 package seon.startmodule.config;
 
 import jakarta.servlet.DispatcherType;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -10,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
-
+@RequiredArgsConstructor
 @Configuration
 @EnableMethodSecurity
 public class SpringSecurityConfig {
@@ -25,14 +26,14 @@ public class SpringSecurityConfig {
         http.csrf().disable().cors().disable()
                 .authorizeHttpRequests(request -> request
                         .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                        .requestMatchers("/status", "/images/**", "/view/join", "/auth/join").permitAll()
+                        .requestMatchers("/images/**", "/auth/join", "/auth/joinPage").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
-                        .loginPage("/view/login")
+                        .loginPage("/auth/loginPage")
                         .loginProcessingUrl("/login-process")
-                        .usernameParameter("userid")
-                        .passwordParameter("pw")
+                        .usernameParameter("userId")
+                        .passwordParameter("userPw")
                         .defaultSuccessUrl("/view/dashboard", true)
                         .permitAll()
                 )

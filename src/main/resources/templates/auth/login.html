@@ -18,15 +18,19 @@
     <div class="content">
       <form method="post" action="/login-process">
         <label>
-          <input type="text" name="userid">
+          <input type="text" name="userId">
         </label>
         <label>
-          <input type="password" name="pw">
+          <input type="password" name="userPw">
         </label>
-        <button type="submit">sign in</button>
-        <a href="/view/join">sign up</a>
+        <button type="submit">login</button>
+        <a href="/auth/joinPage">join</a>
       </form>
     </div>
+
+    <span th:text="${error}"></span>
+    <span th:text="${exception}"></span>
+
   </div>
 
 

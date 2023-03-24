@@ -9,6 +9,10 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
@@ -20,9 +24,19 @@ spring:
 
 logging:
   level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
     root: info
 
 mybatis:
   mapper-locations: mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
+
+application:
+  title: 샘플
+  version: 0.8
