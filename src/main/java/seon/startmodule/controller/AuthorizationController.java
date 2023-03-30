@@ -1,20 +1,17 @@
 package seon.startmodule.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import seon.startmodule.dto.MemberJoinDTO;
 import seon.startmodule.service.RegisterMemberService;
-
+@AllArgsConstructor
 @Controller
 @RequestMapping("/auth")
 public class AuthorizationController {
     private final RegisterMemberService registerMemberService;
-
-    public AuthorizationController(RegisterMemberService registerMemberService) {
-        this.registerMemberService = registerMemberService;
-    }
 
     @GetMapping("/loginPage")
     public String loginPage(@RequestParam(value = "error", required = false)String error,

@@ -5,4 +5,5 @@
     <select id="getTest" resultType="seon.startmodule.dto.TestDTO">
         select test1, test2 from test
     </select>
+
 </mapper>

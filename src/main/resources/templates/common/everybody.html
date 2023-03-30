@@ -5,23 +5,35 @@
     <h1>everybody</h1>
     <span th:text="${data}"></span>
 
-    <p id="test1"></p>
-    <p id="test2"></p>
 
+    <button onclick="test()">테스트</button>
     <table>
-        <tr th:each="d : ${data}">
-            <td th:text="${d.test1}">11</td>
-            <td th:text="${d.test2}">22</td>
+        <tr>
+            <th id="test1"></th>
+            <td id="test2"></td>
         </tr>
     </table>
 
+
+
     <script>
-        fetch("/test").then((res) => {
-            return res.json(); //Promise 반환
-        })
-            .then((json) => {
-                console.log(json); // 서버에서 주는 json데이터가 출력 됨
+
+        function test () {
+            $.ajax({
+                url : "/test"
+                ,type : "post"
+                ,success : function(data){
+                    console.log(data)
+                    $('#test1').html(data[0].test1)
+                    $('#test2').html(data[0].test2)
+                }
             });
+        }
+
+        $(document).ready(function() {
+
+        });
+
     </script>
 
 </div>

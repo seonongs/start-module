@@ -1,21 +1,15 @@
 package seon.startmodule.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import seon.startmodule.domain.Member;
 import seon.startmodule.repository.MemberRepository;
-
+@AllArgsConstructor
 @Service
 public class RegisterMemberService {
     private final PasswordEncoder passwordEncoder;
     private final MemberRepository repository;
-
-    @Autowired
-    public RegisterMemberService(PasswordEncoder passwordEncoder, MemberRepository repository) {
-        this.passwordEncoder = passwordEncoder;
-        this.repository = repository;
-    }
 
     public void join(String userid, String pw) {
         Member member = Member.createUser(userid, pw, passwordEncoder);
