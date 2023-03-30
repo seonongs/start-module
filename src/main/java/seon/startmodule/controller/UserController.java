@@ -7,8 +7,8 @@ import seon.startmodule.config.role.UserAuthorize;
 
 @Controller
 @UserAuthorize
-@RequestMapping("/view/user")
-public class ViewUserController {
+@RequestMapping("/user")
+public class UserController {
 
     @GetMapping("/setting")
     public String userSettingPage() {

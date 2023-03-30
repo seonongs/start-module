@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
+<html xmlns:th="http//www.thymeleaf.org" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content">
-<table>
-  <tr th:each="list : ${list}">
-    <td th:text="${list.id}"></td>
-    <td th:text="${list.type}"></td>
-    <td th:text="${list.title}"></td>
-    <td th:text="${list.content}"></td>
-  </tr>
-</table>
-
+    <table class="striped">
+        <tr th:each="list : ${list}">
+            <td>
+                <a th:href="'/board/'+${list.id}" th:text="${list.id}"></a>
+            </td>
+            <td th:text="${list.type}"></td>
+            <td th:text="${list.title}"></td>
+            <td th:text="${list.content}"></td>
+        </tr>
+    </table>
 </div>
 </html>

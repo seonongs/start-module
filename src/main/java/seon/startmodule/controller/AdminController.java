@@ -7,8 +7,8 @@ import seon.startmodule.config.role.AdminAuthorize;
 
 @Controller
 @AdminAuthorize
-@RequestMapping("/view/admin")
-public class ViewAdminController {
+@RequestMapping("/admin")
+public class AdminController {
 
     @GetMapping("/setting")
     public String adminSettingPage() {

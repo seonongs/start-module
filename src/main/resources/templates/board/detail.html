@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org" layout:decorate="~{layout/default}" lang="ko">
+<div layout:fragment="content">
+<table>
+  <tr>
+    <td><span th:text="${boardDTO.id}"></span></td>
+    <td><span th:text="${boardDTO.type}"></span></td>
+    <td><span th:text="${boardDTO.title}"></span></td>
+    <td><span th:text="${boardDTO.content}"></span></td>
+  </tr>
+</table>
+
+</div>
+</html>

@@ -9,5 +9,13 @@
                , content
         from board
     </select>
+    <select id="getBoard" resultType="seon.startmodule.dto.BoardDTO">
+        select   id
+             , type
+             , title
+             , content
+        from board
+        where id = #{id}
+    </select>
 
 </mapper>

@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
-  <style>
-    .wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-  </style>
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="wrapper">
+<div class="wrapper">
     <div class="content">
-      <form method="post" action="/login-process">
-        <label>
-          <input type="text" name="userId">
-        </label>
-        <label>
-          <input type="password" name="userPw">
-        </label>
-        <button type="submit">login</button>
-        <a href="/auth/joinPage">join</a>
-      </form>
+        <form method="post" action="/login-process">
+            <label>
+                <input type="text" name="userId">
+            </label>
+            <label>
+                <input type="password" name="userPw">
+            </label>
+            <button type="submit">login</button>
+            <a href="/auth/joinPage">join</a>
+        </form>
     </div>
 
     <span th:text="${error}"></span>
     <span th:text="${exception}"></span>
 
-  </div>
+</div>
 
 
 </body>
