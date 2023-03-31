@@ -2,7 +2,7 @@
 <html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content">
 
-    <form id="reg_form">
+    <form name="save_form" action="/board/saveBoard" autocomplete="off" method="post" contentType="application/json">
         <p>
             <label for="type" class="sr-only">타입</label>
             <input type="text" class="form-control" id="type" name="type"/>
@@ -15,7 +15,7 @@
             <label for="content" class="sr-only">내용</label>
             <textarea class="form-control" id="content" name="content" rows="3"></textarea>
         </p>
-        <button onclick="regBoard()">전송</button>
+        <button type="submit">전송</button>
     </form>
 
 </div>
@@ -25,7 +25,7 @@
 
     function regBoard() {
 
-        const form = document.getElementById('reg_form');
+        const form = document.getElementById('save_form');
         const data = new FormData(form);
         const param = JSON.stringify(Object.fromEntries(data));
 
@@ -37,7 +37,11 @@
         $.ajax({
             url: "/board/regBoard"
             , type: "post"
-            , data: param
+            , data: {
+                "type": "1",
+                "title": "1",
+                "content": "1"
+            }
             , success: function (data) {
                 console.log(data)
             }

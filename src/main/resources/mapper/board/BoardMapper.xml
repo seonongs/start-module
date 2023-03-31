@@ -3,29 +3,44 @@
 <mapper namespace="seon.startmodule.mapper.BoardMapper">
 
     <select id="getBoardList" resultType="seon.startmodule.dto.BoardDTO">
-        select   id
-               , type
-               , title
-               , content
-        from board
-    </select>
-
-    <select id="getBoard" resultType="seon.startmodule.dto.BoardDTO">
-        select   id
+        select id
              , type
              , title
              , content
+             , create_date
+             , update_date
+        from board
+        order by create_date desc
+    </select>
+
+    <select id="getBoard" resultType="seon.startmodule.dto.BoardDTO">
+        select id
+             , type
+             , title
+             , content
+             , create_date
+             , update_date
         from board
         where id = #{id}
     </select>
 
-    <insert id="regBoard">
-        insert into board(type, title, content)
-        values (#{type}, #{title}, #{content})
+    <insert id="saveBoard">
+        insert into board(type, title, content, create_date)
+        values (#{type}, #{title}, #{content}, now())
     </insert>
 
+    <update id="modifyBoard">
+        update board
+        set type        = #{type},
+            title       = #{title},
+            content     = #{content},
+            update_date = now()
+        where id = #{id}
+    </update>
+
     <delete id="delBoard" parameterType="seon.startmodule.dto.BoardDTO">
-        delete from board
+        delete
+        from board
         where id = #{id}
     </delete>
 

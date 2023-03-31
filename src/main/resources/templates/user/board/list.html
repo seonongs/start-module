@@ -2,6 +2,9 @@
 <html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
     <div class="text-center">
+
+        <span th:text="${id}"></span>
+
         <table class="table" style="width: 800px;">
             <thead>
             <tr>
@@ -30,7 +33,7 @@
                 <li class="page-item text-black"><a class="page-link" href="#">Next</a></li>
             </ul>
         </nav>
-        <a href="/board/regPage">등록</a>
+        <a href="/board/savePage">등록</a>
     </div>
 </div>
 

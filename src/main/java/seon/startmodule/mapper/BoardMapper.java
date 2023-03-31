@@ -12,5 +12,5 @@ public interface BoardMapper {
 
     BoardDTO getBoard(long id);
 
-    Long regBoard(BoardDTO boardDTO);
+    void saveBoard(BoardDTO boardDTO);
 }

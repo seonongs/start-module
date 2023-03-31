@@ -2,6 +2,8 @@ package seon.startmodule.dto;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class BoardDTO {
 
@@ -9,5 +11,7 @@ public class BoardDTO {
     public String type;
     public String title;
     public String content;
+    public LocalDateTime createDate;
+    public LocalDateTime updateDate;
 
 }

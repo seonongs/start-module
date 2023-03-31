@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import seon.startmodule.dto.BoardDTO;
 import seon.startmodule.service.BoardService;
+
 import java.util.List;
 
 @Controller
@@ -14,9 +15,8 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService boardService;
-
-    @GetMapping("/list")
-    public String boardList (Model model) {
+    @GetMapping
+    public String boardList(Model model) {
         List<BoardDTO> list = boardService.getBoardList();
         model.addAttribute("list", list);
         return "user/board/list";
@@ -29,15 +29,19 @@ public class BoardController {
         return "user/board/detail";
     }
 
-    @GetMapping("/regPage")
-    public String regPage() {
-        return "user/board/reg";
+    @GetMapping("/savePage")
+    public String savePage() {
+        return "user/board/save";
     }
 
-    @ResponseBody
-    @PostMapping("/regBoard")
-    public Long regBoard(@RequestBody BoardDTO boardDTO) {
-        return boardService.regBoard(boardDTO);
+    @PostMapping("/saveBoard")
+    public String saveBoard(BoardDTO boardDTO) {
+         boardService.saveBoard(boardDTO);
+        return "redirect:/board";
     }
 
+    @GetMapping("/modifyPage")
+    public String modifyPage(Model model) {
+        return "user/board/modify";
+    }
 }

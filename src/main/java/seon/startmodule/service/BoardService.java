@@ -2,6 +2,7 @@ package seon.startmodule.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import seon.startmodule.dto.BoardDTO;
 import seon.startmodule.mapper.BoardMapper;
 
@@ -16,12 +17,13 @@ public class BoardService {
     public List<BoardDTO> getBoardList() {
         return boardMapper.getBoardList();
     }
+
     public BoardDTO getBoard(long id) {
         return boardMapper.getBoard(id);
     }
 
-    public Long regBoard(BoardDTO boardDTO) {
-        boardMapper.regBoard(boardDTO);
-        return boardDTO.getId();
+    @Transactional
+    public void saveBoard(BoardDTO boardDTO) {
+        boardMapper.saveBoard(boardDTO);
     }
 }
