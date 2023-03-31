@@ -1,11 +1,9 @@
-package seon.startmodule.controller;
+package seon.startmodule.controller.user;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import seon.startmodule.dto.BoardDTO;
 import seon.startmodule.service.BoardService;
 import java.util.List;
@@ -21,14 +19,25 @@ public class BoardController {
     public String boardList (Model model) {
         List<BoardDTO> list = boardService.getBoardList();
         model.addAttribute("list", list);
-        return "board/list";
+        return "user/board/list";
     }
 
     @GetMapping("/{id}")
     public String detail(@PathVariable("id") Long id, Model model) {
         BoardDTO boardDTO = boardService.getBoard(id);
         model.addAttribute("boardDTO", boardDTO);
-        return "board/detail";
+        return "user/board/detail";
+    }
+
+    @GetMapping("/regPage")
+    public String regPage() {
+        return "user/board/reg";
+    }
+
+    @ResponseBody
+    @PostMapping("/regBoard")
+    public BoardDTO regBoard(@RequestBody BoardDTO boardDTO) {
+        return boardService.regBoard(boardDTO);
     }
 
 }

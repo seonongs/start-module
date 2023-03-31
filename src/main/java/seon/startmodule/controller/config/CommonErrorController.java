@@ -1,4 +1,4 @@
-package seon.startmodule.controller;
+package seon.startmodule.controller.config;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class CommonErrorController implements ErrorController {
 
         model.addAttribute("code", status.toString());
         model.addAttribute("msg", HttpStatus.valueOf(Integer.parseInt(status.toString())));
-        return "error/error";
+        return "config/error/error";
     }
 
 }

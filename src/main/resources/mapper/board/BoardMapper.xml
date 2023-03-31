@@ -9,6 +9,7 @@
                , content
         from board
     </select>
+
     <select id="getBoard" resultType="seon.startmodule.dto.BoardDTO">
         select   id
              , type
@@ -17,5 +18,16 @@
         from board
         where id = #{id}
     </select>
+
+    <insert id="regBoard">
+        insert into board(type, title, content)
+        values (#{type}, #{title}, #{content})
+    </insert>
+
+    <delete id="delBoard" parameterType="seon.startmodule.dto.BoardDTO">
+        delete from board
+        where id = #{id}
+    </delete>
+
 
 </mapper>

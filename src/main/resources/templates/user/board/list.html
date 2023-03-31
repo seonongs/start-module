@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org" layout:decorate="~{layout/default}" lang="ko">
+<div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="text-center">
+        <table class="table" style="width: 800px;">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">구분</th>
+                <th scope="col">제목</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="list : ${list}">
+                <th th:text="${list.id}"></th>
+                <td th:text="${list.type}"></td>
+                <td>
+                    <a th:href="'/board/'+${list.id}" th:text="${list.title}"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item text-black"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item text-black"><a class="page-link" href="#">1</a></li>
+                <li class="page-item text-black"><a class="page-link" href="#">2</a></li>
+                <li class="page-item text-black"><a class="page-link" href="#">3</a></li>
+                <li class="page-item text-black"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+        <a href="/board/regPage">등록</a>
+    </div>
+</div>
+
+<script>
+</script>
+</html>

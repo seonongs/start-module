@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" lang="ko">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>샘플</title>
+    <title>start-module</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <th:block layout:fragment="script">
@@ -13,15 +13,16 @@
     <script src="/bootstrap-5.3.0-alpha2-dist/js/bootstrap.esm.js"></script>
     </th:block>
     <th:block layout:fragment="css">
-    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap-grid.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap-reboot.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap-utilities.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap-grid.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap-reboot.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap-utilities.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/css/common.css" media="screen,projection"/>
     </th:block>
 </head>
 <body>
-<div id="top" th:replace="~{fragments/header:: header}"></div>
+<div id="top" th:replace="~{config/fragments/header:: header}"></div>
 <div layout:fragment="content" class="content"></div>
-<div id="footer" th:replace="~{fragments/footer:: footer}"></div>
+<div id="footer" th:replace="~{config/fragments/footer:: footer}"></div>
 </body>
 </html>

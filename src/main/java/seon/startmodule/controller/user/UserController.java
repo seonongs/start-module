@@ -1,4 +1,4 @@
-package seon.startmodule.controller;
+package seon.startmodule.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

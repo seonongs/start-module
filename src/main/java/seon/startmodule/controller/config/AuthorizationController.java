@@ -1,4 +1,4 @@
-package seon.startmodule.controller;
+package seon.startmodule.controller.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +21,12 @@ public class AuthorizationController {
         model.addAttribute("error", error);
         model.addAttribute("exception", exception);
 
-        return "auth/login";
+        return "config/auth/login";
     }
 
     @GetMapping("/joinPage")
     public String joinPage() {
-        return "auth/join";
+        return "config/auth/join";
     }
 
     @ResponseBody

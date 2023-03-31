@@ -1,4 +1,4 @@
-package seon.startmodule.controller;
+package seon.startmodule.controller.user;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;

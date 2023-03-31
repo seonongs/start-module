@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org" layout:decorate="~{layout/default}" lang="ko">
+<div layout:fragment="content">
+
+    <form id="reg_form">
+        <p>
+            <label for="type" class="sr-only">타입</label>
+            <input type="text" class="form-control" id="type" name="type"/>
+        </p>
+        <p>
+            <label for="title" class="sr-only">제목</label>
+            <input type="text" class="form-control" id="title" name="title"/>
+        </p>
+        <p>
+            <label for="content" class="sr-only">내용</label>
+            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+        </p>
+        <button onclick="regBoard">전송</button>
+    </form>
+
+</div>
+
+<script>
+    const form = document.getElementById('reg_form');
+    const data = new FormData(form);
+    const param = JSON.stringify(Object.fromEntries(data));
+
+
+
+    function regBoard () {
+
+      console.log(form)
+      console.log(data)
+      console.log(param)
+
+
+      $.ajax({
+        url : "/board/regBoard"
+        ,type : "post"
+        ,data : param
+        ,success : function(data){
+          console.log(data)
+        }
+      });
+    }
+
+</script>
+
+</html>

@@ -20,4 +20,7 @@ public class BoardService {
         return boardMapper.getBoard(id);
     }
 
+    public BoardDTO regBoard(BoardDTO boardDTO) {
+        return boardMapper.regBoard(boardDTO);
+    }
 }

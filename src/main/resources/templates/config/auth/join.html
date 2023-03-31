@@ -6,7 +6,6 @@
 </head>
 <body>
 <h1>join</h1>
-<span th:text="${data}"></span>
 <div class="container">
     <form class="form-signin" id='join_form'>
         <h2 class="form-signin-heading text-center mb-5">회원가입!</h2>
@@ -42,7 +41,7 @@
                 .then(response => {
                     // debugger;
                     if (response.status === 200) {
-                        window.location.href = '/auth/loginPage';
+                        window.location.href = 'auth/loginPage';
                         alert("회원가입 성공")
                     } else {
                         alert("회원가입 실패")

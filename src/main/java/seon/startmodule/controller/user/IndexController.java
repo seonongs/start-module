@@ -1,4 +1,4 @@
-package seon.startmodule.controller;
+package seon.startmodule.controller.user;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -13,18 +13,18 @@ import seon.startmodule.config.role.UserAuthorize;
 @UserAuthorize
 @AllArgsConstructor
 @RequestMapping("/common")
-public class CommonController {
+public class IndexController {
 
     @GetMapping("/dashboard")
     public String dashboardPage(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("loginId", user.getUsername());
         model.addAttribute("loginRoles", user.getAuthorities());
-        return "common/dashboard";
+        return "user/common/dashboard";
     }
 
     @GetMapping("/setting")
     public String settingPage() {
-        return "common/everybody";
+        return "user/common/everybody";
     }
 
 }

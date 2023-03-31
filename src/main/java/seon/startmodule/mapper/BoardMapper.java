@@ -11,4 +11,6 @@ public interface BoardMapper {
     List<BoardDTO> getBoardList();
 
     BoardDTO getBoard(long id);
+
+    BoardDTO regBoard(BoardDTO boardDTO);
 }

@@ -19,6 +19,8 @@ spring:
     cache: false
 
   devtools:
+    restart:
+      enabled: false
     livereload:
       enabled: true
 

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http//www.thymeleaf.org" layout:decorate="~{layout/default}" lang="ko">
+<html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
-
-    <div class="col-md-5" style="float: none; margin:0 auto;">
-        <div class="card text-bg-danger mb-3" style="width: 18rem; text-align: center">
+    <div class="col-md-1" style="float: none; margin:0 auto; width: 300px;">
+<!--        <div class="card text-bg-danger text-center" style="width: 18rem; text-align: center">-->
+        <div class="card text-bg-danger text-center" >
             <div class="card-body">
-                <h2 class="card-title">Error Page</h2>
+                <h4 class="card-title">Error Page</h4>
                 <p class="card-text"></p>
             </div>
-            <img src="/images/error/error.png" class="card-img-top" alt="...">
             <ul class="list-group list-group-flush">
 <!--                <li class="list-group-item"><span th:text="${code}"></span></li>-->
                 <li class="list-group-item"><span class="text-danger" th:text="${msg}"></span></li>
@@ -18,7 +17,5 @@
             </div>
         </div>
     </div>
-
-
 </div>
 </html>
