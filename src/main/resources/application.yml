@@ -40,5 +40,5 @@ mybatis:
 
 
 application:
-  title: 샘플
+  title: start-module
   version: 0.8

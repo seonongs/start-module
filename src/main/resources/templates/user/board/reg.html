@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http//www.thymeleaf.org" layout:decorate="~{layout/default}" lang="ko">
+<html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content">
 
     <form id="reg_form">
@@ -15,33 +15,33 @@
             <label for="content" class="sr-only">내용</label>
             <textarea class="form-control" id="content" name="content" rows="3"></textarea>
         </p>
-        <button onclick="regBoard">전송</button>
+        <button onclick="regBoard()">전송</button>
     </form>
 
 </div>
 
 <script>
-    const form = document.getElementById('reg_form');
-    const data = new FormData(form);
-    const param = JSON.stringify(Object.fromEntries(data));
 
 
+    function regBoard() {
 
-    function regBoard () {
+        const form = document.getElementById('reg_form');
+        const data = new FormData(form);
+        const param = JSON.stringify(Object.fromEntries(data));
 
-      console.log(form)
-      console.log(data)
-      console.log(param)
+        console.log(form)
+        console.log(data)
+        console.log(param)
 
 
-      $.ajax({
-        url : "/board/regBoard"
-        ,type : "post"
-        ,data : param
-        ,success : function(data){
-          console.log(data)
-        }
-      });
+        $.ajax({
+            url: "/board/regBoard"
+            , type: "post"
+            , data: param
+            , success: function (data) {
+                console.log(data)
+            }
+        });
     }
 
 </script>

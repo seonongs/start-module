@@ -12,8 +12,15 @@ import seon.startmodule.config.role.UserAuthorize;
 @Controller
 @UserAuthorize
 @AllArgsConstructor
-@RequestMapping("/common")
+@RequestMapping("/")
 public class IndexController {
+
+    @GetMapping("/")
+    public String index(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("loginId", user.getUsername());
+        model.addAttribute("loginRoles", user.getAuthorities());
+        return "user/common/dashboard";
+    }
 
     @GetMapping("/dashboard")
     public String dashboardPage(@AuthenticationPrincipal User user, Model model) {

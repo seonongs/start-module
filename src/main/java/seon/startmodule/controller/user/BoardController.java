@@ -36,7 +36,7 @@ public class BoardController {
 
     @ResponseBody
     @PostMapping("/regBoard")
-    public BoardDTO regBoard(@RequestBody BoardDTO boardDTO) {
+    public Long regBoard(@RequestBody BoardDTO boardDTO) {
         return boardService.regBoard(boardDTO);
     }
 
