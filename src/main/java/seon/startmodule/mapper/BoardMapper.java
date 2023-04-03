@@ -10,7 +10,9 @@ public interface BoardMapper {
 
     List<BoardDTO> getBoardList();
 
-    BoardDTO getBoard(long id);
+    BoardDTO getBoard(long boardId);
 
     void saveBoard(BoardDTO boardDTO);
+    void modifyBoard(BoardDTO boardDTO);
+    void deleteBoard(long boardId);
 }

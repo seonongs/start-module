@@ -2,36 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <body>
 <div th:fragment="header">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">홈</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">역할</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/setting">사용자</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/admin/setting">관리자</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="/board">게시판</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="/logout">로그아웃</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="">Disabled</a>
-                    </li>
-                </ul>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">홈</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#"
+                               role="button" aria-expanded="false">역할</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/setting">사용자</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="/admin/setting">관리자</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/board">게시판</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/logout">로그아웃</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </div>
 </body>
 </html>

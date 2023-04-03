@@ -22,9 +22,9 @@ public class BoardController {
         return "user/board/list";
     }
 
-    @GetMapping("/{id}")
-    public String detail(@PathVariable("id") Long id, Model model) {
-        BoardDTO boardDTO = boardService.getBoard(id);
+    @GetMapping("/{boardId}")
+    public String detail(@PathVariable("boardId") Long boardId, Model model) {
+        BoardDTO boardDTO = boardService.getBoard(boardId);
         model.addAttribute("boardDTO", boardDTO);
         return "user/board/detail";
     }
@@ -40,8 +40,21 @@ public class BoardController {
         return "redirect:/board";
     }
 
-    @GetMapping("/modifyPage")
-    public String modifyPage(Model model) {
+    @GetMapping("/modifyPage/{boardId}")
+    public String modifyPage(@PathVariable("boardId") Long boardId, Model model) {
+        BoardDTO boardDTO = boardService.getBoard(boardId);
+        model.addAttribute("boardDTO", boardDTO);
         return "user/board/modify";
+    }
+    @PostMapping("/modifyBoard")
+    public String modifyBoard(BoardDTO boardDTO) {
+        boardService.modifyBoard(boardDTO);
+        return "redirect:/board";
+    }
+
+    @GetMapping("/deleteBoard/{boardId}")
+    public String deleteBoard(@PathVariable("boardId") Long boardId) {
+        boardService.deleteBoard(boardId);
+        return "redirect:/board";
     }
 }

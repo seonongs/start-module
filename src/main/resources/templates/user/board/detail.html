@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/default}" lang="ko">
-<div layout:fragment="content">
-    <table>
-        <tr>
-            <th>#</th>
-            <td><span th:text="${boardDTO.id}"></span></td>
-        </tr>
-        <tr>
-            <th>타입</th>
-            <td><span th:text="${boardDTO.type}"></span></td>
-        </tr>
-        <tr>
-            <th>제목</th>
-            <td><span th:text="${boardDTO.title}"></span></td>
-        </tr>
-        <tr>
-            <th>내용</th>
-            <td><span th:text="${boardDTO.content}"></span></td>
-        </tr>
-        <tr>
-            <th>작성시간</th>
-            <td><span th:text="${#temporals.format(boardDTO.createDate, 'yyyy-MM-dd HH:mm')}"></span></td>
-        </tr>
-    </table>
-<button href="/board">목록</button>
-<button>수정</button>
+<div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <td><span id="boardId" th:text="${boardDTO.boardId}"></span></td>
+            </tr>
+            <tr>
+                <th>타입</th>
+                <td><span th:text="${boardDTO.type}"></span></td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td><span th:text="${boardDTO.title}"></span></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><span th:text="${boardDTO.content}"></span></td>
+            </tr>
+            <tr>
+                <th>작성시간</th>
+                <td><span th:text="${#temporals.format(boardDTO.createDate, 'yyyy-MM-dd HH:mm')}"></span></td>
+            </tr>
+        </table>
+        <div class="row text-center">
+            <div class="col">
+                <button type="button" onclick="location.href='/board'" class="btn btn-outline-dark">목록</button>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <button th:onclick="|location.href='@{/board/modifyPage/{boardId}(boardId = ${boardDTO.boardId})}'|" class="btn btn-dark">수정</button>
+            </div>
+        </div>
+    </div>
 </div>
 </html>

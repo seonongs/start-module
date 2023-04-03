@@ -18,12 +18,19 @@ public class BoardService {
         return boardMapper.getBoardList();
     }
 
-    public BoardDTO getBoard(long id) {
-        return boardMapper.getBoard(id);
+    public BoardDTO getBoard(long boardId) {
+        return boardMapper.getBoard(boardId);
     }
 
     @Transactional
     public void saveBoard(BoardDTO boardDTO) {
         boardMapper.saveBoard(boardDTO);
+    }
+    public void modifyBoard(BoardDTO boardDTO) {
+        boardMapper.modifyBoard(boardDTO);
+    }
+
+    public void deleteBoard(long boardId) {
+        boardMapper.deleteBoard(boardId);
     }
 }

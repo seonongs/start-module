@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
-    <div class="text-center">
-
-        <span th:text="${id}"></span>
-
-        <table class="table" style="width: 800px;">
+    <div class="container">
+        <table class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -15,25 +12,48 @@
             </thead>
             <tbody>
             <tr th:each="list : ${list}">
-                <th th:text="${list.id}"></th>
+                <th th:text="${list.boardId}"></th>
                 <td th:text="${list.type}"></td>
                 <td>
-                    <a th:href="'/board/'+${list.id}" th:text="${list.title}"></a>
+                    <a th:href="'/board/'+${list.boardId}" th:text="${list.title}"></a>
                 </td>
             </tr>
             </tbody>
         </table>
 
         <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item text-black"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item text-black"><a class="page-link" href="#">1</a></li>
-                <li class="page-item text-black"><a class="page-link" href="#">2</a></li>
-                <li class="page-item text-black"><a class="page-link" href="#">3</a></li>
-                <li class="page-item text-black"><a class="page-link" href="#">Next</a></li>
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link text-black" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link text-black" href="#">1</a></li>
+                <li class="page-item"><a class="page-link text-black" href="#">2</a></li>
+                <li class="page-item"><a class="page-link text-black" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link text-black" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-        <a href="/board/savePage">등록</a>
+
+            <div class="justify-content-end-">
+
+            </div>
+
+        <div class="row text-center">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"><button onclick="location.href='/board/savePage'" class="btn btn-outline-dark">등록</button></div>
+        </div>
+
     </div>
 </div>
 
