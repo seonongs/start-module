@@ -34,9 +34,27 @@
                         </li>
                     </ul>
                 </div>
+                <span>이름:</span> <span id="loginId"></span>
+                <span>역할:</span> <span id="loginRoles"></span>
             </div>
+
+
         </nav>
     </div>
+<script>
+    $(document).ready(function() {
+
+
+        $.ajax({
+            url : "/userInfo"
+            ,type : "get"
+            ,success : function(data){
+                $('#loginId').html(data.loginId)
+                $('#loginRoles').html(data.loginRoles[0].authority)
+            }
+        });
+    });
+</script>
 </div>
 </body>
 </html>

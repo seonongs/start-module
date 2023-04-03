@@ -7,7 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import seon.startmodule.config.role.UserAuthorize;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @UserAuthorize
@@ -27,6 +31,16 @@ public class IndexController {
         model.addAttribute("loginId", user.getUsername());
         model.addAttribute("loginRoles", user.getAuthorities());
         return "user/common/dashboard";
+    }
+    @ResponseBody
+    @GetMapping("/userInfo")
+    public Map<String, Object> userInfo(@AuthenticationPrincipal User user, Model model) {
+
+        Map<String, Object> userInfo = new HashMap<>();
+        userInfo.put("loginId", user.getUsername());
+        userInfo.put("loginRoles", user.getAuthorities());
+
+        return userInfo;
     }
 
     @GetMapping("/setting")
