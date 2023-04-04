@@ -44,6 +44,5 @@ public class SpringSecurityConfig {
                 .logout(withDefaults());
 
         return http.build();
-
     }
 }
