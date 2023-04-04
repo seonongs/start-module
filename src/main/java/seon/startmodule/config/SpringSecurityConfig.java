@@ -9,12 +9,15 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 @RequiredArgsConstructor
 @Configuration
 @EnableMethodSecurity
 public class SpringSecurityConfig {
+
+    private final AuthenticationFailureHandler customFailureHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -35,6 +38,7 @@ public class SpringSecurityConfig {
                         .usernameParameter("userId")
                         .passwordParameter("userPw")
                         .defaultSuccessUrl("/dashboard", true)
+                        .failureUrl("/auth/loginPage?error=true&exception=Error")
                         .permitAll()
                 )
                 .logout(withDefaults());

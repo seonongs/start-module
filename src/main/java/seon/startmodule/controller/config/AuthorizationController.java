@@ -1,6 +1,8 @@
 package seon.startmodule.controller.config;
 
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import seon.startmodule.service.RegisterMemberService;
 public class AuthorizationController {
     private final RegisterMemberService registerMemberService;
 
+    private final Logger log = LoggerFactory.getLogger(getClass());
     @GetMapping("/loginPage")
     public String loginPage(@RequestParam(value = "error", required = false)String error,
                             @RequestParam(value = "exception", required = false)String exception,
@@ -20,6 +23,8 @@ public class AuthorizationController {
 
         model.addAttribute("error", error);
         model.addAttribute("exception", exception);
+
+        log.info("loginForm view resolve");
 
         return "config/auth/login";
     }

@@ -1,5 +1,6 @@
 package seon.startmodule.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,13 +13,9 @@ import seon.startmodule.service.MemberService;
 import java.util.Optional;
 
 @Component
+@AllArgsConstructor
 public class MyUserDetailService implements UserDetailsService {
     private final MemberService memberService;
-
-    @Autowired
-    public MyUserDetailService(MemberService memberService) {
-        this.memberService = memberService;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String insertedUserId) throws UsernameNotFoundException {

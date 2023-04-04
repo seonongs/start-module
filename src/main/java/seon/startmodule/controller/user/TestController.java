@@ -2,6 +2,7 @@ package seon.startmodule.controller.user;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import seon.startmodule.dto.TestDTO;
@@ -17,6 +18,10 @@ public class TestController {
     @PostMapping("/test")
     public List<TestDTO> test () {
         return testService.getTest();
+    }
+    @GetMapping("/fail")
+    public String fail() {
+        return "config/auth/join";
     }
 
 }
