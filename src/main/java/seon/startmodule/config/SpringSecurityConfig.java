@@ -42,7 +42,6 @@ public class SpringSecurityConfig {
                         .permitAll()
                 )
                 .logout(withDefaults());
-
         return http.build();
     }
 }
