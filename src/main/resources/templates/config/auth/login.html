@@ -15,27 +15,31 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 50vh;
         }
     </style>
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="content">
-        <form method="post" action="/login-process">
-            <label for="userId"></label>
-            <input type="text" id="userId" name="userId">
-            <label for="userPw"></label>
-            <input type="password" id="userPw" name="userPw">
-            <button class="btn btn-sm btn-dark" type="submit">Login</button>
-            <button  class="btn btn-sm btn-dark" type="button" onclick="location.href='/auth/joinPage'">Join</button>
-        </form>
+    <div class="container text-center">
+        <div class="row">
+            <h2 style="text-align: center;">Login</h2>
+        </div>
+        <div class="row">
+            <form method="post" action="/login-process">
+                <label for="userId"></label>
+                <input type="text" id="userId" name="userId">
+                <label for="userPw"></label>
+                <input type="password" id="userPw" name="userPw">
+                <button class="btn btn-sm btn-dark" type="submit">Login</button>
+                <button  class="btn btn-sm btn-dark" type="button" onclick="location.href='/auth/joinPage'">Join</button>
+            </form>
+        </div>
+        <div class="row">
+            <h3 style="text-align: center;" th:if="${error == 'error'}">로그인이 실패하였습니다.</h3>
+        </div>
     </div>
-
-    <span th:text="${error}"></span>
-    <span th:text="${exception}"></span>
-
 </div>
 
 

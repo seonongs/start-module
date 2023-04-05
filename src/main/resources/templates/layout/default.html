@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="ko">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -9,10 +9,11 @@
     <script src="/bootstrap-5.3.0-alpha2-dist/js/bootstrap.bundle.min.js" type="module"></script>
     <link type="text/css" rel="stylesheet" href="/bootstrap-5.3.0-alpha2-dist/css/bootstrap.min.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="/css/common.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/css/header.css" media="screen,projection"/>
 </head>
 <body>
-<div id="top" th:replace="~{config/fragments/header:: header}"></div>
-<div layout:fragment="content" class="content"></div>
-<div id="footer" th:replace="~{config/fragments/footer:: footer}"></div>
+<div th:replace="~{config/fragments/header:: header}"></div>
+<div layout:fragment="content"></div>
+<div th:replace="~{config/fragments/footer:: footer}"></div>
 </body>
 </html>
