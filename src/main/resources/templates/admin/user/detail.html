@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default}" lang="ko">
+<div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <td><span th:text="${users.seq}"></span></td>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <td><span th:text="${users.id}"></span></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td><span th:text="${users.name}"></span></td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td><span th:text="${users.role}"></span></td>
+            </tr>
+            <tr>
+                <th>작성시간</th>
+                <td><span th:text="${#temporals.format(users.createDate, 'yyyy-MM-dd HH:mm')}"></span></td>
+            </tr>
+        </table>
+        <div class="row text-center">
+            <div class="col">
+                <button type="button" onclick="location.href='/user/list'" class="btn btn-outline-dark">목록</button>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <button th:onclick="|location.href='@{/admin/user/modifyPage/{seq}(seq = ${users.seq})}'|" class="btn btn-dark">수정</button>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
