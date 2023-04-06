@@ -7,13 +7,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import seon.startmodule.dto.MemberDTO;
-import seon.startmodule.service.RegisterMemberService;
+import seon.startmodule.dto.UserDTO;
+import seon.startmodule.service.UserService;
+
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @Controller
 @RequestMapping("/auth")
 public class AuthorizationController {
-    private final RegisterMemberService registerMemberService;
+    private final UserService service;
 
     private final Logger log = LoggerFactory.getLogger(getClass());
     @GetMapping("/loginPage")
@@ -32,12 +35,16 @@ public class AuthorizationController {
 
     @ResponseBody
     @PostMapping("/join")
-    public ResponseEntity<String> join(@RequestBody MemberDTO dto) {
+    public ResponseEntity<String> join(@RequestBody UserDTO dto) {
+        LocalDateTime now = LocalDateTime.now();
         try {
-            registerMemberService.join(dto.getUserid(), dto.getPw());
+            service.join(dto.getId(), dto.getName(), dto.getPassword(), dto.getRole(), now);
+
             return ResponseEntity.ok("join success");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
 }

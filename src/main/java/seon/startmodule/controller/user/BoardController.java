@@ -14,47 +14,44 @@ import java.util.List;
 @RequestMapping("/board")
 public class BoardController {
 
-    private final BoardService boardService;
-    @GetMapping
+    private final BoardService service;
+
+    @GetMapping("/list")
     public String boardList(Model model) {
-        List<BoardDTO> list = boardService.getBoardList();
+        List<BoardDTO> list = service.getList();
         model.addAttribute("list", list);
         return "user/board/list";
     }
-
-    @GetMapping("/{boardId}")
-    public String detail(@PathVariable("boardId") Long boardId, Model model) {
-        BoardDTO boardDTO = boardService.getBoard(boardId);
-        model.addAttribute("boardDTO", boardDTO);
+    @GetMapping("/{seq}")
+    public String detail(@PathVariable("seq") Long seq, Model model) {
+        BoardDTO data = service.getOne(seq);
+        model.addAttribute("data", data);
         return "user/board/detail";
     }
-
-    @GetMapping("/savePage")
-    public String savePage() {
+    @GetMapping("/save")
+    public String save() {
         return "user/board/save";
     }
 
-    @PostMapping("/saveBoard")
-    public String saveBoard(BoardDTO boardDTO) {
-         boardService.saveBoard(boardDTO);
-        return "redirect:/board";
+    @PostMapping("/save")
+    public String save(BoardDTO dto) {
+         service.save(dto);
+        return "redirect:/board/list";
     }
-
-    @GetMapping("/modifyPage/{boardId}")
-    public String modifyPage(@PathVariable("boardId") Long boardId, Model model) {
-        BoardDTO boardDTO = boardService.getBoard(boardId);
-        model.addAttribute("boardDTO", boardDTO);
+    @GetMapping("/modify/{seq}")
+    public String modify(@PathVariable("seq") Long seq, Model model) {
+        BoardDTO data = service.getOne(seq);
+        model.addAttribute("data", data);
         return "user/board/modify";
     }
-    @PostMapping("/modifyBoard")
-    public String modifyBoard(BoardDTO boardDTO) {
-        boardService.modifyBoard(boardDTO);
-        return "redirect:/board";
+    @PostMapping("/modify")
+    public String modify(BoardDTO dto) {
+        service.modify(dto);
+        return "redirect:/board/list";
     }
-
-    @GetMapping("/deleteBoard/{boardId}")
-    public String deleteBoard(@PathVariable("boardId") Long boardId) {
-        boardService.deleteBoard(boardId);
-        return "redirect:/board";
+    @GetMapping("/delete/{seq}")
+    public String delete(@PathVariable("seq") Long id) {
+        service.delete(id);
+        return "redirect:/board/list";
     }
 }

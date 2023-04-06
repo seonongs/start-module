@@ -12,25 +12,25 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardService {
 
-    private final BoardMapper boardMapper;
+    private final BoardMapper mapper;
 
-    public List<BoardDTO> getBoardList() {
-        return boardMapper.getBoardList();
+    public List<BoardDTO> getList() {
+        return mapper.getList();
     }
 
-    public BoardDTO getBoard(long boardId) {
-        return boardMapper.getBoard(boardId);
+    public BoardDTO getOne(long id) {
+        return mapper.getOne(id);
     }
 
     @Transactional
-    public void saveBoard(BoardDTO boardDTO) {
-        boardMapper.saveBoard(boardDTO);
+    public void save(BoardDTO dto) {
+        mapper.save(dto);
     }
-    public void modifyBoard(BoardDTO boardDTO) {
-        boardMapper.modifyBoard(boardDTO);
+    public void modify(BoardDTO dto) {
+        mapper.modify(dto);
     }
 
-    public void deleteBoard(long boardId) {
-        boardMapper.deleteBoard(boardId);
+    public void delete(long id) {
+        mapper.delete(id);
     }
 }

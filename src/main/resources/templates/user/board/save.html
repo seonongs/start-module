@@ -2,7 +2,7 @@
 <html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
     <div class="container">
-        <form name="form" action="/board/saveBoard" autocomplete="off" method="post" contentType="application/json">
+        <form name="form" action="/board/save" autocomplete="off" method="post" contentType="application/json">
             <p>
                 <label for="type" class="sr-only">타입</label>
                 <input type="text" class="form-control" id="type" name="type"/>
@@ -16,7 +16,7 @@
                 <textarea class="form-control" id="content" name="content" rows="3"></textarea>
             </p>
         <div class="row text-center">
-            <div class="col"><button type="button" onclick="location.href='/board'" class="btn btn-outline-dark">목록</button></div>
+            <div class="col"><button type="button" onclick="location.href='/board/list'" class="btn btn-outline-dark">목록</button></div>
             <div class="col"></div>
             <div class="col"></div>
             <div class="col"></div>

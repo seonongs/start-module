@@ -6,28 +6,28 @@
         <table class="table">
             <tr>
                 <th>#</th>
-                <td><span id="boardId" th:text="${boardDTO.boardId}"></span></td>
+                <td><span id="seq" th:text="${data.seq}"></span></td>
             </tr>
             <tr>
                 <th>타입</th>
-                <td><span th:text="${boardDTO.type}"></span></td>
+                <td><span th:text="${data.type}"></span></td>
             </tr>
             <tr>
                 <th>제목</th>
-                <td><span th:text="${boardDTO.title}"></span></td>
+                <td><span th:text="${data.title}"></span></td>
             </tr>
             <tr>
                 <th>내용</th>
-                <td><span th:text="${boardDTO.content}"></span></td>
+                <td><span th:text="${data.content}"></span></td>
             </tr>
             <tr>
                 <th>작성시간</th>
-                <td><span th:text="${#temporals.format(boardDTO.createDate, 'yyyy-MM-dd HH:mm')}"></span></td>
+                <td><span th:text="${#temporals.format(data.createDate, 'yyyy-MM-dd HH:mm')}"></span></td>
             </tr>
         </table>
         <div class="row text-center">
             <div class="col">
-                <button type="button" onclick="location.href='/board'" class="btn btn-outline-dark">목록</button>
+                <button type="button" onclick="location.href='/board/list'" class="btn btn-outline-dark">목록</button>
             </div>
             <div class="col"></div>
             <div class="col"></div>
@@ -35,7 +35,7 @@
             <div class="col"></div>
             <div class="col"></div>
             <div class="col">
-                <button th:onclick="|location.href='@{/board/modifyPage/{boardId}(boardId = ${boardDTO.boardId})}'|" class="btn btn-dark">수정</button>
+                <button th:onclick="|location.href='@{/board/modify/{seq}(seq = ${data.seq})}'|" class="btn btn-dark">수정</button>
             </div>
         </div>
     </div>

@@ -1,2 +1,38 @@
-
-modify
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
+<div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="container">
+        <form name="form" action="/admin/user/modify" autocomplete="off" method="post" contentType="application/json">
+            <p>
+                <label for="showId" class="sr-only">#</label>
+                <input type="text" class="form-control" id="showId" name="showId" th:value="${data.seq}" disabled/>
+                <input type="hidden" class="form-control" id="seq" name="seq" th:value="${data.seq}"/>
+            </p>
+            <p>
+                <label for="id" class="sr-only">ID</label>
+                <input type="text" class="form-control" id="id" name="id" th:value="${data.id}"/>
+            </p>
+            <p>
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" class="form-control" id="name" name="name" th:value="${data.name}"/>
+            </p>
+            <p>
+                <label for="role" class="sr-only">Role</label>
+                <input type="text" class="form-control" id="role" name="role" th:value="${data.role}"/>
+            </p>
+            <div class="row text-center">
+                <div class="col"><button type="button" onclick="location.href='/board/list'" class="btn btn-outline-dark">목록</button></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col">
+                    <button th:onclick="|location.href='@{/admin/user/delete/{seq}(seq = ${data.seq})}'|" type="button" class="btn btn-dark">삭제</button>
+                </div>
+                <div class="col"><button type="submit" class="btn btn-dark">수정</button></div>
+            </div>
+        </form>
+    </div>
+</div>
+</html>

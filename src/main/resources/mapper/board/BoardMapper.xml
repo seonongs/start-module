@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="seon.startmodule.mapper.BoardMapper">
 
-    <select id="getBoardList" resultType="seon.startmodule.dto.BoardDTO">
-        select id as board_id
+    <select id="getList" resultType="seon.startmodule.dto.BoardDTO">
+        select seq
              , type
              , title
              , content
@@ -13,35 +13,35 @@
         order by create_date desc
     </select>
 
-    <select id="getBoard" resultType="seon.startmodule.dto.BoardDTO">
-        select id as board_id
+    <select id="getOne" resultType="seon.startmodule.dto.BoardDTO">
+        select seq
              , type
              , title
              , content
              , create_date
              , update_date
         from board
-        where id = #{boardId}
+        where seq = #{seq}
     </select>
 
-    <insert id="saveBoard">
+    <insert id="save">
         insert into board(type, title, content, create_date)
         values (#{type}, #{title}, #{content}, now())
     </insert>
 
-    <update id="modifyBoard">
+    <update id="modify">
         update board
         set type        = #{type},
             title       = #{title},
             content     = #{content},
             update_date = now()
-        where id = #{boardId}
+        where seq = #{seq}
     </update>
 
-    <delete id="deleteBoard">
+    <delete id="delete">
         delete
         from board
-        where id = #{boardId}
+        where seq = #{seq}
     </delete>
 
 

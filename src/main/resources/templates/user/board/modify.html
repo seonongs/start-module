@@ -2,33 +2,33 @@
 <html xmlns:th="http//www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/default}" lang="ko">
 <div layout:fragment="content" style="margin-top: 50px; margin-bottom: 50px;">
     <div class="container">
-        <form name="form" action="/board/modifyBoard" autocomplete="off" method="post" contentType="application/json">
+        <form name="form" action="/board/modify" autocomplete="off" method="post" contentType="application/json">
             <p>
                 <label for="showId" class="sr-only">#</label>
-                <input type="text" class="form-control" id="showId" name="showId" th:value="${boardDTO.boardId}" disabled/>
-                <input type="hidden" class="form-control" id="boardId" name="boardId" th:value="${boardDTO.boardId}"/>
+                <input type="text" class="form-control" id="showId" name="showId" th:value="${data.seq}" disabled/>
+                <input type="hidden" class="form-control" id="seq" name="seq" th:value="${data.seq}"/>
             </p>
             <p>
                 <label for="type" class="sr-only">타입</label>
-                <input type="text" class="form-control" id="type" name="type" th:value="${boardDTO.type}"/>
+                <input type="text" class="form-control" id="type" name="type" th:value="${data.type}"/>
             </p>
             <p>
                 <label for="title" class="sr-only">제목</label>
-                <input type="text" class="form-control" id="title" name="title" th:value="${boardDTO.title}"/>
+                <input type="text" class="form-control" id="title" name="title" th:value="${data.title}"/>
             </p>
             <p>
                 <label for="content" class="sr-only">내용</label>
-                <textarea class="form-control" id="content" name="content" rows="3" th:text="${boardDTO.content}"></textarea>
+                <textarea class="form-control" id="content" name="content" rows="3" th:text="${data.content}"></textarea>
             </p>
             <div class="row text-center">
-                <div class="col"><button type="button" onclick="location.href='/board'" class="btn btn-outline-dark">목록</button></div>
+                <div class="col"><button type="button" onclick="location.href='/board/list'" class="btn btn-outline-dark">목록</button></div>
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col">
-                    <button th:onclick="|location.href='@{/board/deleteBoard/{boardId}(boardId = ${boardDTO.boardId})}'|" type="button" class="btn btn-dark">삭제</button>
+                    <button th:onclick="|location.href='@{/board/delete/{seq}(seq = ${data.seq})}'|" type="button" class="btn btn-dark">삭제</button>
                 </div>
                 <div class="col"><button type="submit" class="btn btn-dark">수정</button></div>
             </div>

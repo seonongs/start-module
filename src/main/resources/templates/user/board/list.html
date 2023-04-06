@@ -12,10 +12,10 @@
             </thead>
             <tbody>
             <tr th:each="list : ${list}">
-                <th th:text="${list.boardId}"></th>
+                <th th:text="${list.seq}"></th>
                 <td th:text="${list.type}"></td>
                 <td>
-                    <a th:href="'/board/'+${list.boardId}" th:text="${list.title}"></a>
+                    <a th:href="'/board/'+${list.seq}" th:text="${list.title}"></a>
                 </td>
             </tr>
             </tbody>
@@ -39,10 +39,6 @@
             </ul>
         </nav>
 
-            <div class="justify-content-end-">
-
-            </div>
-
         <div class="row text-center">
             <div class="col"></div>
             <div class="col"></div>
@@ -51,7 +47,7 @@
             <div class="col"></div>
             <div class="col"></div>
             <div class="col"></div>
-            <div class="col"><button onclick="location.href='/board/savePage'" class="btn btn-outline-dark">등록</button></div>
+            <div class="col"><button onclick="location.href='/board/save'" class="btn btn-outline-dark">등록</button></div>
         </div>
 
     </div>
