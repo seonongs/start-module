@@ -20,8 +20,8 @@
 
         function test () {
             $.ajax({
-                url : "/dashboard"
-                ,type : "get"
+                url : "/test"
+                ,type : "post"
                 ,success : function(data){
                     console.log(data)
                     $('#test1').html(data[0].test1)
