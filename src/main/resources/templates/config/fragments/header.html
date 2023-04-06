@@ -70,7 +70,7 @@
             ,type : "get"
             ,success : function(data){
                 $('#loginId').html(data.loginId)
-                $('#loginRoles').html(data.loginRoles[0].authority)
+                $('#loginRoles').html(data.loginRoles[0].authority.replace("ROLE_", ""))
             }
         });
     });
