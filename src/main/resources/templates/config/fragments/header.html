@@ -46,35 +46,70 @@
                             </li>
                         </ul>
                     </div>
-                    <span id="loginId"></span>
+
+                    <span id="time"></span>
                     [<span id="loginRoles"></span>]
                     <a class="nav-link text-dark me-2 ms-5" href="/logout">로그아웃</a>
                 </div>
             </nav>
         </div>
     </div>
-<script>
+    <script>
 
-    $('nav li').hover(
-        function() {
-            $('ul', this).stop().slideDown(200);
-        },
-        function() {
-            $('ul', this).stop().slideUp(200);
-        }
-    );
-
-    $(document).ready(function() {
-        $.ajax({
-            url : "/userInfo"
-            ,type : "get"
-            ,success : function(data){
-                $('#loginId').html(data.loginId)
-                $('#loginRoles').html(data.loginRoles[0].authority.replace("ROLE_", ""))
+        $('nav li').hover(
+            function () {
+                $('ul', this).stop().slideDown(200);
+            },
+            function () {
+                $('ul', this).stop().slideUp(200);
             }
+        );
+
+        function getUserInfo() {
+            $.ajax({
+                url: "/userInfo"
+                , type: "get"
+                , success: function (data) {
+                    console.log(data)
+                    $('#loginId').html(data.loginId)
+                    $('#loginRoles').html(data.loginRoles[0].authority.replace("ROLE_", ""))
+
+                    sessionTime(data.endTime)
+
+                }
+            });
+        }
+
+
+        function sessionTime(endTime) {
+
+            let now = Date.now();
+            let calc1 = endTime - now
+            let calc2 = parseInt( calc1 / 1000 )
+            let cale3 = parseInt( calc2 / 60 ) + "분"+ calc2%60 + "초"
+
+            console.log(now + " || 현재시간")
+            console.log(endTime + " || 종료시간")
+            console.log(calc1 + " || calc1")
+            console.log(calc2 + " || calc2")
+            console.log(cale3 + " || cale3")
+
+            $('#time').html(cale3)
+
+            if(calc2 < 1) {
+                window.location.href = '/'
+                throw "세션이 종료되었습니다."
+            }
+
+
+        }
+
+        getUserInfo();
+        setInterval(getUserInfo, 1000);
+
+        $(document).ready(function () {
         });
-    });
-</script>
+    </script>
 </div>
 </body>
 </html>

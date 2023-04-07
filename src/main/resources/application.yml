@@ -48,3 +48,8 @@ logging:
 application:
   title: start-module
   version: 0.8
+
+server:
+  servlet:
+    session:
+      timeout: 30
