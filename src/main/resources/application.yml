@@ -45,11 +45,17 @@ logging:
       sqltiming: OFF        # SQL + 소요시간 출력
       connection : OFF      # 커넥션 연결/종료 정보 출력
 
+server:
+  servlet:
+    session:
+      timeout: 30m      # 60m * 24h * 30d
+      cookie:
+        max-age: 30m    # 60m * 24h * 30d
+        name: SID
+        http-only: true
+        secure: true
+
 application:
   title: start-module
   version: 0.8
 
-server:
-  servlet:
-    session:
-      timeout: 30

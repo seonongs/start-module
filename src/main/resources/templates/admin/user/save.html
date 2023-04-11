@@ -18,7 +18,18 @@
             <p>
                 <label for="role" class="sr-only">Role</label>
                 <input type="text" class="form-control" id="role" name="role"/>
+
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>선택</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                </select>
             </p>
+            <span id="groupCode"></span>
+
+            <select className="form-select" aria-label="Default select example"><option selected>선택</option><option value='admin'>관리자</option><option value='user'>사용자</option></select>
+
+
             <div class="row text-center">
                 <div class="col"><button type="button" onclick="location.href='/admin/user/list'" class="btn btn-outline-dark">목록</button></div>
                 <div class="col"></div>
@@ -31,5 +42,19 @@
         </form>
     </div>
 
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            getCode("role")
+
+        });
+
+
+    </script>
+
 </div>
+
 </html>
